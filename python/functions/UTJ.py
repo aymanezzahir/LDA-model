@@ -60,11 +60,11 @@ def UTJ(url: str) -> URLAnalysis:
                 "path": "/".join(path_parts[2:]),
             }
 
-    # Medium
-    if hostname in ("medium.com", "www.medium.com") or hostname.endswith(".medium.com"):
+    # techcrunch
+    if hostname in ("techcrunch.com", "www.techcrunch.com") or hostname.endswith(".techcrunch.com"):
         return {
             "valid": True,
-            "platform": "medium",
+            "platform": "techcrunch",
             "type": "article",
             "url": url,
             "path": pathname,

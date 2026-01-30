@@ -8,7 +8,7 @@ export default function Header(){
             <div className="flex items-center gap-8">
               <div className="flex items-center gap-2">
                 <TrendingUp className="w-6 h-6 text-indigo-600" />
-                <span className="text-xl font-bold text-gray-900">Trendshift</span>
+                <span className="text-xl font-bold text-gray-900">LDA-Model</span>
               </div>
               <nav className="hidden md:flex gap-6">
                 <button className="text-gray-600 hover:text-gray-900 transition-colors">

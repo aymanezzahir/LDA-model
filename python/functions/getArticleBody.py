@@ -60,7 +60,25 @@ def getArticleBody(analysis: dict) -> str | None:
                     parts.append(text)
 
             content = "\n".join(parts).strip()
+          # ---------------- techcrunch ----------------
+        elif platform in ("techcrunch", "techcrunch.com"):
+            container = soup.select_one(".wp-block-post-content")
+            if not container:
+                raise ValueError("TechCrunch content container not found")
 
+            parts = []
+            for el in container.find_all(["h1", "h2", "h3", "p", "li"], recursive=True):
+                text = el.get_text(" ", strip=True)
+                if not text:
+                    continue
+                if el.name in ("h1", "h2", "h3"):
+                    parts.append(f"\n## {text}\n")
+                elif el.name == "li":
+                    parts.append(f"- {text}")
+                else:
+                    parts.append(text)
+
+            content = "\n".join(parts).strip()
         else:
             raise ValueError(f"Unsupported platform: {platform}")
 
